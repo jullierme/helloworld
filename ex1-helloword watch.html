@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="bower_components/angularjs/angular-csp.css">
+
+    <script src="bower_components/angularjs/angular.js"></script>
+
+    <script src="js/app-config.js"></script>
+
+    <style>
+        .green{
+            background-color: green;
+        }
+
+        .yellow{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body ng-app="angularjsApp">
+
+<div ng-controller="IndexController">
+    <span>Nome</span>
+    <input type="text" ng-model="nome">
+
+    <div style="width: 100px; height: 100px" ng-style="myStyle">
+        ng-style
+    </div>
+
+    <div style="width: 100px; height: 100px" ng-class="myClass">
+        ng-class
+    </div>
+</div>
+
+
+
+
+</body>
+</html>

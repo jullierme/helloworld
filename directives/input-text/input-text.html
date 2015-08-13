@@ -1,0 +1,14 @@
+<div ng-class="classColspan">
+    <label for="{{idAux}}componente"
+           class="control-label">
+        <span ng-bind="label"></span>
+        <span style="color: red;" ng-show="ngRequired">*</span>
+    </label>
+    <input id="{{idAux}}componente"
+           type="text"
+           class="form-control"
+           ng-model="ngModel"
+           ng-disabled="ngDisabled"
+           ng-required="ngRequired"
+           placeholder="{{placeholder}}"/>
+</div>

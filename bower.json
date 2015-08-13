@@ -1,0 +1,28 @@
+{
+  "name": "angularjs",
+  "version": "0.0.0",
+  "authors": [
+    "Jullierme Barros"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularjs": "~1.4.3",
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4",
+    "angular-messages": "~1.4.3",
+    "angular-sanitize": "~1.4.3",
+    "angular-ui-growl": "~0.0.1",
+    "angular-material": "~v0.10.1-rc5",
+    "font-awesome": "~4.4.0",
+    "ui-router": "~0.2.15",
+    "oclazyload": "~1.0.4",
+    "angular-ui-grid": "~3.0.3"
+  }
+}

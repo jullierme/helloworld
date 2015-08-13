@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="bower_components/angularjs/angular-csp.css">
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+
+    <link rel="stylesheet" href="bower_components/angular-ui-growl/css/growl.css">
+    <link rel="stylesheet" href="css/mybootstrap.css">
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+
+    <script src="bower_components/angularjs/angular.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+
+    <script src="bower_components/angular-ui-growl/src/growl.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+
+    <script src="js/app-config-bootstrap.js"></script>
+
+    <script src="//localhost:35729/livereload.js"></script>
+
+</head>
+<body ng-app="angularjsApp">
+
+<script type="text/ng-template" id="error-messages">
+    <p ng-message="required">Campo obrigatório</p>
+    <p ng-message="minlength">Campo muito curto</p>
+    <p ng-message="maxlength">Campo muito longo</p>
+    <p ng-message="email">E-mail inválido</p>
+</script>
+
+
+<div ng-controller="BootstrapController">
+    <div class="container" style="border: solid; border-color: 1px;"
+            >
+
+        <form novalidate name="myForm">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group"
+                         ng-class="{ 'has-error': (myForm.tiNome.$invalid && !myForm.$pristine) }">
+                        <label class="control-label">Nome</label>
+                        <input type="text"
+                               class="form-control"
+                               name="tiNome"
+                               ng-model="pessoa.nome"
+                               ng-minlength="5"
+                               ng-maxlength="20"
+                               required
+                               >
+
+                        <div ng-messages="myForm.tiNome.$error" ng-if="!myForm.$pristine">
+                            <p ng-message="minlength">Campo muito curto.</p>
+                            <p ng-message="maxlength">Campo muito longo.</p>
+                            <p ng-message="required">Campo obrigatório.</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group"
+                         ng-class="{ 'has-error': (myForm.tiSobrenome.$invalid && !myForm.$pristine) }">
+                        <label class="control-label">Sobrenome</label>
+                        <input type="text"
+                               class="form-control"
+                               name="tiSobrenome"
+                               ng-model="pessoa.sobrenome"
+                               ng-minlength="5"
+                               ng-maxlength="20"
+                               required>
+
+                        <div class="help-block" ng-messages="myForm.tiSobrenome.$error" ng-if="!myForm.$pristine">
+                            <div ng-messages-include="error-messages"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group"
+                         ng-class="{ 'has-error': (myForm.tiDataNascimento.$invalid && !myForm.$pristine) }">
+                        <label class="control-label">Nascimento</label>
+                        <input type="date"
+                               class="form-control"
+                               name="tiDataNascimento"
+                               ng-model="pessoa.nascimento"
+                               required>
+                        <div class="help-block" ng-messages="myForm.tiDataNascimento.$error" ng-if="!myForm.$pristine">
+                            <div ng-messages-include="error-messages"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group"
+                         ng-class="{ 'has-error': (myForm.seSexo.$invalid && !myForm.$pristine) }">
+                        <label class="control-label">Sexo</label>
+                        <select class="form-control"
+                                name="seSexo"
+                                ng-model="pessoa.sexo"
+                                required>
+                            <option value="M">Masculino</option>
+                            <option value="F">Feminino</option>
+                        </select>
+                        <div class="help-block" ng-messages="myForm.seSexo.$error" ng-if="!myForm.$pristine">
+                            <div ng-messages-include="error-messages"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <div class="list-group">
+                        <a href="#" class="list-group-item" ng-repeat="item in pessoas" ng-click="editar(item)">
+                            <h4 class="list-group-item-heading" ng-bind="item.nome"></h4>
+
+                            <p class="list-group-item-text"
+                               ng-bind="item.sobrenome + ' - ' + item.sexo + ' - ' + item.nascimento"></p>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <nav class="navbar navbar-default" style="padding-left: 10px;">
+                <button type="submit" class="btn btn-primary navbar-btn" ng-click="salvar()">Salvar</button>
+                <button class="btn btn-warning navbar-btn" ng-click="limpar()">Limpar</button>
+                <button class="btn btn-danger navbar-btn" ng-click="excluir()">Excluir</button>
+            </nav>
+
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>

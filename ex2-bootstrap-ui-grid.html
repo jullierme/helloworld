@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="bower_components/angularjs/angular-csp.css">
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+
+    <link rel="styleSheet" href="bower_components/angular-ui-grid/ui-grid.css"/>
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angularjs/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+    <script src="bower_components/angular-ui-grid/ui-grid.js"></script>
+
+    <script src="js/app-config-bootstrap-table.js"></script>
+</head>
+<body ng-app="angularjsApp">
+
+
+<div ng-controller="BootstrapTableController">
+    <div class="container">
+
+        <table class="table">
+            <tr>
+                <th>Coluna 1</th>
+                <th>Coluna 2</th>
+                <th>Coluna 3</th>
+            </tr>
+            <tr>
+                <td>Eve</td>
+                <td>Jackson</td>
+                <td>94</td>
+            </tr>
+            <tr>
+                <td>Eve</td>
+                <td>Jackson</td>
+                <td>94</td>
+            </tr>
+        </table>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Coluna 1</th>
+                <th>Coluna 2</th>
+                <th>Coluna 3</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="carro in carros">
+                <td ng-bind="::carro.nome"></td>
+                <td ng-bind="::carro.cor"></td>
+                <td ng-bind="::carro.marca"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div ui-grid="{ data: carros }" ui-grid-resize-columns></div>
+
+        <button class="btn btn-primary"
+                ng-click="carregarRegistrosSelecionados()"
+                aria-label="Carregar itens selecionados">Carregar itens selecionados</button>
+
+        <div ui-grid="gridOptions"
+             ui-grid-resize-columns
+             ui-grid-selection>
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Coluna 1</th>
+                <th>Coluna 2</th>
+                <th>Coluna 3</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="carro in selecionados">
+                <td ng-bind="::carro.nome"></td>
+                <td ng-bind="::carro.cor"></td>
+                <td ng-bind="::carro.marca"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- erro sem track by $index -->
+    <div ng-repeat="n in [42, 42, 43, 43] track by $index">
+        {{n}}
+    </div>
+</div>
+
+
+</body>
+</html>

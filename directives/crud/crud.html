@@ -1,0 +1,39 @@
+<div>
+    <md-card>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>
+                    <span ng-bind="::titulo"></span>
+                </h2>
+            </div>
+        </md-toolbar>
+        <form name="formCrud">
+
+            <div ng-transclude style="padding: 10px;"></div>
+
+            <nav class="navbar navbar-default" style="padding-left: 15px; margin-left: 5px; margin-right: 5px">
+                <ul class="nav nav-pills">
+                    <div class="navbar-btn">
+                        <button class="btn btn-primary"
+                                ng-click="salvar()"
+                                ng-if="exibirBotaoSalvar">
+                            <span>Salvar</span>
+                        </button>
+                        <button class="btn btn-warning"
+                                type="button"
+                                ng-click="limpar()"
+                                ng-if="exibirBotaoLimpar">
+                            <span>Limpar</span>
+                        </button>
+                        <button class="btn btn-danger"
+                                type="button"
+                                ng-click="excluir()"
+                                ng-if="exibirBotaoExcluir">
+                            <span>Excluir</span>
+                        </button>
+                    </div>
+                </ul>
+            </nav>
+        </form>
+    </md-card>
+</div>
